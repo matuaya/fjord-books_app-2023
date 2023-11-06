@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    model:
+      book: book
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 画像
+  views:
+    links:
+      show_this_book: 本の詳細
+      new_book: 本の追加
+      edit_this_book: 本の編集
+      back_to_books: Booksに戻る
+    buttons:
+      destroy_this_book: 本の消去
+  helpers:
+    submit:
+      create: 追加
+      update: 編集
