@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1><%= t('views.common.title_index', name: i18n_pluralize(Book.model_name.human)) %></h1>
-
+<%= paginate @books %>
 <div id="books" class="index-items">
   <% @books.each do |book| %>
     <div class="index-item">
