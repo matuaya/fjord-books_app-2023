@@ -40,12 +40,11 @@ en:
         author: Author
         picture: Picture
   views:
-    links:
+    processes:
       show_this_book: Show this book
       new_book: New book
       edit_this_book: Edit this book
       back_to_books: Back to books
-    buttons:
       destroy_this_book: Destroy this book
   helpers:
     submit:
