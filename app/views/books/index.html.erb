@@ -1,5 +1,10 @@
 <p style="color: green"><%= notice %></p>
-
+<nav>
+  <ul>
+    <li><%= button_to "logout", destroy_user_session_path, method: :delete  %></li>
+    <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+  </ul>
+</nav>
 <h1>Books</h1>
 
 <div id="books">
