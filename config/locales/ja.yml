@@ -1,0 +1,29 @@
+
+ja:
+  activerecord:
+    model:
+      book: book
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 画像
+  views:
+    actions:
+      show_this_book: 本の詳細
+      new_book: 本の追加
+      edit_this_book: 本の編集
+      back_to_books: Booksに戻る
+      destroy_this_book: 本の消去
+      edit_account: アカウントの編集
+      logout: ログアウト
+      show_users_list: ユーザーリスト
+      show_user_profile: ユーザープロフィール
+      back_to_users: ユーザーリストに戻る
+    pagination: 
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
+
