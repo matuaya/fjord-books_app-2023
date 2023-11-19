@@ -4,4 +4,7 @@
     <li><%= link_to user.name, user_path(user)%></li>
   </ul>
 <% end %>
+
+<%= paginate @users %>
+
 <%= link_to "Back to books", books_path %>
