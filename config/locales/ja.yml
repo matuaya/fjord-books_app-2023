@@ -10,7 +10,7 @@ ja:
         author: 著者
         picture: 画像
   views:
-    actions:
+    generals:
       show_this_book: 本の詳細
       new_book: 本の追加
       edit_this_book: 本の編集

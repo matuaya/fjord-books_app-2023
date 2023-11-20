@@ -1,4 +1,4 @@
-<h1><%= t('views.actions.show_users_list') %></h1>
+<h1><%= t('views.generals.show_users_list') %></h1>
 <% @users.each do |user| %>
   <ul>
     <li><%= link_to user.name, user_path(user) %></li>
@@ -7,4 +7,4 @@
 
 <%= paginate @users %>
 
-<%= link_to t('views.actions.back_to_books'), books_path %>
+<%= link_to t('views.generals.back_to_books'), books_path %>
