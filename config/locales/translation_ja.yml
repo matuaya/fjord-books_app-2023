@@ -11,6 +11,7 @@ ja:
         picture: 画像
         title: タイトル
       user:
+        avatar: プロフィール画像
         name: 氏名
         postal_code: 郵便番号
         address: 住所

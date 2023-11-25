@@ -15,6 +15,12 @@
   <%= render 'devise/registrations/profile_fields', f: f %>
 
   <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, accept: 'image/jpeg, image/png, image/gif', direct_upload: true %>
+  </div>
+  <%= image_tag current_user.avatar.variant(resize_to_fit: [100, 100]) if current_user.avatar.attached? %>
+
+  <div class="field">
     <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
