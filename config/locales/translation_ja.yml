@@ -9,3 +9,8 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
+  views:
+    generals:
+      edit_account: アカウントの編集
+      logout: ログアウト
+      users_list: ユーザーリスト

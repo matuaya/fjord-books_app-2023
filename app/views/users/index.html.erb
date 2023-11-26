@@ -1,0 +1,7 @@
+<h1><%= t('views.generals.users_list') %></h1>
+<% @users.each do |user| %>
+  <ul>
+    <li><%= link_to user.name, user_path(user) %></li>
+  </ul>
+<% end %>
+<%= paginate @users %>
