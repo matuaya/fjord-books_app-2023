@@ -13,4 +13,5 @@ ja:
     generals:
       edit_account: アカウントの編集
       logout: ログアウト
+      show_this_user: このユーザーを表示
       users_list: ユーザーリスト

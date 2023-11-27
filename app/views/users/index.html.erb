@@ -1,7 +1,11 @@
-<h1><%= t('views.generals.users_list') %></h1>
-<% @users.each do |user| %>
-  <ul>
-    <li><%= link_to user.name, user_path(user) %></li>
-  </ul>
-<% end %>
+<div class="index-items">
+  <% @users.each do |user| %>
+    <div class="index-item">
+      <%= render user %>
+      <p>
+        <%= link_to t('views.generals.show_this_user'), user_path(user) %>
+      </p>
+    </div>
+  <% end %>
+</div>
 <%= paginate @users %>
