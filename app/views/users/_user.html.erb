@@ -1,21 +1,21 @@
 <div>
   <p>
-    <strong><%= t(User.human_attribute_name('name')) %>:</strong>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
     <%= user.name %>
   </p>
 
   <p>
-    <strong><%= t(User.human_attribute_name('postal_code')) %>:</strong>
+    <strong><%= User.human_attribute_name(:postal_code) %>:</strong>
     <%= user.postal_code %>
   </p>
 
   <p>
-    <strong><%= t(User.human_attribute_name('address')) %>:</strong>
+    <strong><%= User.human_attribute_name(:address) %>:</strong>
     <%= user.address %>
   </p>
 
   <p>
-    <strong><%= t(User.human_attribute_name('self_introduction')) %>:</strong>
+    <strong><%= User.human_attribute_name(:self_introduction) %>:</strong>
     <%= user.self_introduction %>
   </p>
 </div>
