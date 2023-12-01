@@ -179,10 +179,13 @@ ja:
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
+      longer: "%Y年%m月%d日(%a) %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
   views:
     common:
+      comment_submit: コメントする
+      comment_delete: 削除
       show: "この%{name}を表示"
       edit: "この%{name}を編集"
       destroy: "この%{name}を削除"
@@ -207,6 +210,7 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      alert_create: "%{name}が作成されませんでした。"
   layouts:
     application:
       menu: メニュー

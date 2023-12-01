@@ -1,0 +1,22 @@
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Report.model_name.human)) %></h1>
+
+<div id="reports" class="report-container">
+  <% @reports.each do |report| %>
+    <div class="report-body">
+      <p>
+        <%= link_to report.title, report_path(report) %>
+      </p>
+      <small class="report-user">
+        <%= report.user.name.present? ? report.user.name : report.user.email %>
+      </small>
+      <small class="report-date">
+        <%= report.date.strftime(t('date.formats.long')) %>
+      </small>
+      <small class="report-count">
+        <%= "#{i18n_pluralize(Comment.model_name.human)} (#{report.comments.count})" if report.comments.count >= 1 %>
+      </small>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to t('views.common.new', name: Report.model_name.human.downcase), new_report_path %>

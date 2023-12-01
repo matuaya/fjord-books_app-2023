@@ -319,3 +319,122 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
 }
+
+.report-container {
+  margin: 50px auto 0px;;
+  width: 650px;
+  border: 1px solid rgb(182, 180, 180);
+  border-radius: 3px;
+  border-bottom: none;
+}
+
+.report-body {
+  width: 100%;
+  border-bottom: 1px solid rgb(182, 180, 180);
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.report-body p, small{
+  padding: 15px;
+}
+
+.report-body p {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.report-user {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+
+.report-date {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 5px 5px;
+}
+
+.report-count {
+  display: block;
+  padding: 0 0 15px 15px;
+}
+
+.comment-container {
+  max-width: var(--single-column-w);
+  display: block;
+}
+
+.comment-container h2 {
+  font-size: 1.2em;
+}
+
+.comment-container .comment {
+  display: block;
+  margin: 0 auto 15px;
+  padding: 0;
+  min-height: 100px;
+  width: 500px;
+  border: 1px solid rgb(175, 175, 175);
+  border-radius: 3px;
+}
+
+.comment-container .comment p {
+  padding: 10px 15px 10px;
+  margin: 0;
+}
+
+.comment-container .comment-user {
+  display: inline-block;
+}
+
+.comment-container .comment-date {
+  display: inline-block;
+  float: right;
+  font-size: 0.9em;
+  color: rgb(154, 152, 152);
+}
+
+.comment-container .comment-content {
+  border-top: 1px solid rgb(237, 236, 236);
+  border-bottom: 1px solid rgb(237, 236, 236);
+  line-height: 1.4;
+}
+
+.comment-container button[type="submit"] {
+  display: block;
+  margin: 5px auto;
+  font-size: var(--main-button-fz);
+  min-width: var(--main-button-w);
+  height: 25px;
+  background-color: var(--global-primary-c);
+  border: solid 1px var(--global-primary-c-hover);
+  border-radius: var(--global-br);
+  color: #fff;
+  font-weight: bold; 
+}
+
+.comment-form h2 {
+  font-size: 1.1em;
+}
+
+.comment-form textarea {
+  display: block;
+  margin: 0 auto;
+  height: 150px;
+  width: 500px;
+}
+
+.comment-form input[type="submit"] {
+  display: block;
+  margin: 5px auto 0;
+  font-size: var(--main-button-fz);
+  min-width: var(--main-button-w);
+  height: 30px;
+  background-color: var(--global-primary-c);
+  border: solid 1px var(--global-primary-c-hover);
+  border-radius: var(--global-br);
+  color: #fff;
+  font-weight: bold; 
+}

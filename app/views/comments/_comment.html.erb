@@ -1,0 +1,14 @@
+<div class="comment-container">
+  <h2><%= "#{i18n_pluralize(Comment.model_name.human)} (#{commentable.comments.count})" %></h2>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+    <% user = comment.user.name.present? ? comment.user.name : comment.user.email %>
+      <p class="comment-user"><%= link_to user, user_path(comment.user) %></p>
+      <p class="comment-date"><%= l comment.created_at, format: :longer %></p>
+      <p class="comment-content"><%= comment.content %></p>
+      <% if current_user == comment.user %>
+        <%= button_to t('views.common.comment_delete'), [commentable, comment], method: :delete %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
