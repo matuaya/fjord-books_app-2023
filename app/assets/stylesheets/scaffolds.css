@@ -253,6 +253,12 @@ Show
   font-size: var(--global-label-fz);
 }
 
+.show-item p em {
+  display: block;
+  font-size: 0.9em;
+  font-style: normal;
+}
+
 .show-item img {
   max-height: 400px;
   display: block;

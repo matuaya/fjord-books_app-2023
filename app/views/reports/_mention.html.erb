@@ -1,0 +1,7 @@
+<% mentioned_reports = report.mentioned_reports %>
+<% unless mentioned_reports.blank? %>
+  <em>この日報は以下の日報からリンクされています：</em>
+  <% mentioned_reports.each do |report| %>
+    <%= link_to report.title, report_path(report) %>からリンク<br>
+  <% end %>
+<% end %>

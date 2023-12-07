@@ -14,4 +14,18 @@ class Report < ApplicationRecord
   def created_on
     created_at.to_date
   end
+
+  has_many :mentioned_relationships, inverse_of: :mentioning,
+                                     foreign_key: :mentioning_id,
+                                     class_name: 'Relationship',
+                                     dependent: :destroy
+
+  has_many :mentioned_reports, through: :mentioned_relationships, source: :mentioned, dependent: :destroy
+
+  has_many :mentioning_relationships, inverse_of: :mentioned,
+                                      foreign_key: :mentioned_id,
+                                      class_name: 'Relationship',
+                                      dependent: :destroy
+
+  has_many :mentioning_reports, through: :mentioning_relationships, source: :mentioning, dependent: :destroy
 end
