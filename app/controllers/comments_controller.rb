@@ -18,15 +18,15 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @commentable.comments.find(params[:id])
-    @comment.destroy
+    @comment.destroy if current_user == @comment.user
     redirect_to @commentable
   end
 
   private
 
   def find_commentable
-    @commentable = Book.find_by_id(params[:book_id]) if params[:book_id]
-    @commentable = Report.find_by_id(params[:report_id]) if params[:report_id]
+    @commentable = Book.find(params[:book_id]) if params[:book_id]
+    @commentable = Report.find(params[:report_id]) if params[:report_id]
   end
 
   def comment_params
