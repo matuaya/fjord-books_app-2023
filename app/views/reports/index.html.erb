@@ -10,7 +10,8 @@
         <%= report.user.name.present? ? report.user.name : report.user.email %>
       </small>
       <small class="report-date">
-        <%= report.date.strftime(t('date.formats.long')) %>
+        <% report_date = report.date %>
+        <%= report_date.strftime(t('date.formats.long')) if report_date.present? %>
       </small>
       <small class="report-count">
         <%= "#{i18n_pluralize(Comment.model_name.human)} (#{report.comments.count})" if report.comments.count >= 1 %>
