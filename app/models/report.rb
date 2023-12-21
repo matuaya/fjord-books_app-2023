@@ -15,23 +15,14 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def save_with_mention!
+  def save_with_mentions!
     ActiveRecord::Base.transaction do
       save!
-      create_mention_relationships!
+      update_mention_relationships!
     end
   end
 
-  def create_mention_relationships!
-    mentioning_ids = get_ids_from_urls
-
-    mentioning_ids.each do |mentioning_id|
-      mentioning_report = Report.find(mentioning_id)
-      Relationship.create!(mentioning_id: mentioning_report.id, mentioned_id: id)
-    end
-  end
-
-  def update_with_mention!(report_params)
+  def update_with_mentions!(report_params)
     ActiveRecord::Base.transaction do
       update!(report_params)
       update_mention_relationships!
@@ -43,8 +34,9 @@ class Report < ApplicationRecord
     updated_mentioning_report_ids = get_ids_from_urls
 
     updated_mentioning_report_ids.each do |mentioning_id|
-      mentioning_report = Report.find(mentioning_id)
-      Relationship.create!(mentioning_id: mentioning_report.id, mentioned_id: id) unless original_mentioning_report_ids.include?(mentioning_id)
+      unless original_mentioning_report_ids.include?(mentioning_id)
+        Relationship.create!(mentioning_id:, mentioned_id: id)
+      end
     end
 
     deleted_mentions = original_mentioning_report_ids - updated_mentioning_report_ids
