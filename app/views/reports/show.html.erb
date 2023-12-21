@@ -1,7 +1,8 @@
 <h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
 <div class="show-item">
-  <%= render @report, show_mention: true %>
+  <%= render @report %>
+  <%= render 'mention', report: @report %>
 </div>
 
 <%= render 'shared/comments', commentable: @report %>

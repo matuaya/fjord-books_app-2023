@@ -19,10 +19,4 @@
     <%= l report.created_on %>
   </p>
 
-  <% if local_assigns.fetch(:show_mention, false) %>
-    <p>
-      <%= render 'reports/mention', report: report %>
-    </p>
-  <% end %>
-
 </div>
