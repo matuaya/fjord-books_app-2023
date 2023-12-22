@@ -3,6 +3,16 @@
 class Report < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :mentioned_relationships, inverse_of: :mentioning,
+                                     foreign_key: :mentioning_id,
+                                     class_name: 'Relationship',
+                                     dependent: :destroy
+  has_many :mentioned_reports, through: :mentioned_relationships, source: :mentioned
+  has_many :mentioning_relationships, inverse_of: :mentioned,
+                                      foreign_key: :mentioned_id,
+                                      class_name: 'Relationship',
+                                      dependent: :destroy
+  has_many :mentioning_reports, through: :mentioning_relationships, source: :mentioning
 
   validates :title, presence: true
   validates :content, presence: true
@@ -29,12 +39,14 @@ class Report < ApplicationRecord
     end
   end
 
+  private
+
   def update_mention_relationships!
     original_mentioning_report_ids = mentioning_reports.pluck(:id)
     updated_mentioning_report_ids = get_ids_from_urls
 
     updated_mentioning_report_ids.each do |mentioning_id|
-      unless original_mentioning_report_ids.include?(mentioning_id)
+      if !original_mentioning_report_ids.include?(mentioning_id) && Report.exists?(mentioning_id)
         Relationship.create!(mentioning_id:, mentioned_id: id)
       end
     end
@@ -50,18 +62,4 @@ class Report < ApplicationRecord
   def get_ids_from_urls
     content.scan(%r{localhost:3000/reports/(\d+)}).uniq.flatten.map(&:to_i)
   end
-
-  has_many :mentioned_relationships, inverse_of: :mentioning,
-                                     foreign_key: :mentioning_id,
-                                     class_name: 'Relationship',
-                                     dependent: :destroy
-
-  has_many :mentioned_reports, through: :mentioned_relationships, source: :mentioned
-
-  has_many :mentioning_relationships, inverse_of: :mentioned,
-                                      foreign_key: :mentioned_id,
-                                      class_name: 'Relationship',
-                                      dependent: :destroy
-
-  has_many :mentioning_reports, through: :mentioning_relationships, source: :mentioning
 end
