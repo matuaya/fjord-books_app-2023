@@ -28,8 +28,8 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '登録する'
 
     assert_text '日報が作成されました。'
-    assert_selector 'p', text: 'Railsについて' 
-    assert_selector 'p', text: '興味深い'
+    assert_text 'Railsについて' 
+    assert_text '興味深い'
     click_link '日報の一覧に戻る'
   end
 
@@ -42,16 +42,16 @@ class ReportsTest < ApplicationSystemTestCase
     click_button '更新する'
 
     assert_text '日報が更新されました。'
-    assert_selector 'p', text: '内容を変更する。'
-    assert_selector 'p', text: 'タイトルも変更する。'
+    assert_text '内容を変更する。'
+    assert_text'タイトルも変更する。'
     click_link '日報の一覧に戻る'
   end
 
   test 'should destroy Report' do
     visit report_url(@report)
     click_on 'この日報を削除', match: :first
-    assert_no_selector 'p', text: '内容を変更する。'
-    assert_no_selector 'p', text: 'タイトルも変更する。'
+    assert_no_text '内容を変更する。'
+    assert_no_text 'タイトルも変更する。'
 
     assert_text '日報が削除されました。'
   end
